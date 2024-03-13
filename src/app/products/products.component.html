@@ -1,0 +1,41 @@
+<div class="flex justify-center w-full">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Product name
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Category
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Price
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Action
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of productsList" class="odd:bg-white even:bg-gray-50 border-b">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+          {{product.name}}
+        </th>
+        <td class="px-6 py-4">
+          {{product.category}}
+        </td>
+        <td class="px-6 py-4">
+          {{product.price | price}}
+        </td>
+        <td class="px-6 py-4 gap-2">
+          <button class="mr-2 font-medium text-blue-600 hover:underline" (click)="showDetailsProduct(product)" >Details</button>
+          <button (click)="deleteProduct(product.id)" class="font-medium text-blue-600 hover:underline">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+</div>
+</div>
+<app-details-product [product]="selectedProduct" [isVisible]="showDetails" (hideDetails)="showDetails=false" ></app-details-product>
+

@@ -1,0 +1,17 @@
+<div [ngClass]=
+       "'w-screen h-screen flex items-center justify-center backdrop-blur-[1px] fixed top-0 right-0 '+(!isVisible?'hidden':'')"
+>
+  <div *ngIf="product" class="flex flex-col bg-white border-[1px] border-gray-200 rounded p-10 gap-3 shadow-2xl">
+
+    <div>ID : {{product.id}}</div>
+    <hr>
+    <div>Name : {{product.name}}</div>
+    <hr>
+    <div>Category : {{product.category}}</div>
+    <hr>
+    <div>Price : {{product.price | price}}</div>
+
+    <button (click)="hide()" class="mt-7 pd-2 border-[1px] border-red-300 rounded hover:bg-red-300 ">Close</button>
+
+  </div>
+</div>
